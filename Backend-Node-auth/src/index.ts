@@ -2,25 +2,9 @@ import express from 'express'
 import config from './config'
 import Loaders from './loaders'
 import Logger from './loaders/logger'
-import cron from 'node-cron'
 
 const startServer = async () => {
     try {
-        // cron for every 1 hour
-        // cron.schedule('0 */1 * * *', () => {
-        //     // Add your task logic here
-        // })
-
-        // cron for every 1 day
-        // cron.schedule('0 0 */1 * *', () => {
-        //     // Add your task logic here
-        // })
-
-        // // cron for every 1 minutes
-        // cron.schedule('*/1 * * * *', () => {
-        //     // Add your task logic here
-        // })
-
         const app = express()
         await Loaders({ expressApp: app })
         app.listen(config.port, () => {
